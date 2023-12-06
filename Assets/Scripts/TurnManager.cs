@@ -8,11 +8,21 @@ public class TurnManager : MonoBehaviour
     public List<List<Piece>> playersPieces = new ();
     public int currentPlayer;
 
+    private void Awake()
+    {
+        playersPieces.Add(new ());
+        playersPieces.Add(new ());
+    }
+
     public void Move (Piece piece, Vector2Int endPos) {
+        Debug.Log($"move {piece} to {endPos}");
+
+        /*
         if (!playersPieces[currentPlayer].Contains (piece))
             return;
+        */
 
-        if (board.Move (piece.position, endPos))
+        if (board.Move (piece.Position, endPos))
             NextPlayer();
     }
 
