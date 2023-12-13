@@ -7,8 +7,8 @@ public class Controller : MonoBehaviour
 {
     [SerializeField] TurnManager turnManager;
     [SerializeField] Board board;
-    Vector2 mousePosition;
-    Piece selectedPiece;
+    [SerializeField] Vector2 mousePosition;
+    [SerializeField] Piece selectedPiece;
 
     public void Click (InputAction.CallbackContext context) {
         if (!context.performed)
@@ -24,9 +24,10 @@ public class Controller : MonoBehaviour
         {
             selectedPiece = piece;
             return;
-        } else
+        } else if (selectedPiece)
         {
             turnManager.Move(selectedPiece, board.WorldToBoardPosition(rHit.point));
+            selectedPiece = null;
         }
     }
 
@@ -38,5 +39,11 @@ public class Controller : MonoBehaviour
         mousePosition = context.ReadValue<Vector2>();
     }
 
+    public void RightClick (InputAction.CallbackContext context)
+    {
+        if (!context.performed)
+            return;
 
+        selectedPiece = null;
+    }
 }

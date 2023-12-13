@@ -569,7 +569,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1072232037
 GameObject:
@@ -614,9 +614,9 @@ Transform:
   m_Children:
   - {fileID: 123618596}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1371852011
+--- !u!1 &1297477759
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -624,55 +624,52 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1371852014}
-  - component: {fileID: 1371852013}
-  - component: {fileID: 1371852012}
+  - component: {fileID: 1297477761}
+  - component: {fileID: 1297477760}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: BoardGenerator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1371852012
+--- !u!114 &1297477760
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1371852011}
+  m_GameObject: {fileID: 1297477759}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3cc6f914cb268a24c90067c23eeabc40, type: 3}
+  m_Script: {fileID: 11500000, guid: ba5e49f8fd2f1934192bebbfe9209b51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!65 &1371852013
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1371852011}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 0.02, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!4 &1371852014
+  turnManager: {fileID: 856650471}
+  board: {fileID: 1788173646550791330}
+  piecesPrefabs:
+  - {fileID: 8337720293325636502, guid: 0c11c99a593f3d24eb11c78aca56640a, type: 3}
+  - {fileID: 4285279292720316949, guid: 2eeef70c75c8d8f428bd8001e6f2458a, type: 3}
+  - {fileID: 4672964671051559576, guid: 3295f96eddc7974418228285d010d7e6, type: 3}
+  - {fileID: 8387365764281469667, guid: 517929ba65747c64db688b5c1acb71d2, type: 3}
+  - {fileID: 7047238179793854364, guid: 515bd30342f7e764eb4817e2c7abc299, type: 3}
+  - {fileID: 1349098883090598887, guid: a9db56a055d0ccc418ba446f81cd71f4, type: 3}
+  - {fileID: 5533171324318360125, guid: 819239d5cf0bb904b9e1a4054bbe8f06, type: 3}
+  boardData: {fileID: 11400000, guid: 5a7332af47381eb4a976cf6c3cb3414c, type: 2}
+--- !u!4 &1297477761
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1371852011}
+  m_GameObject: {fileID: 1297477759}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1840639380
 GameObject:
@@ -706,6 +703,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   turnManager: {fileID: 856650471}
   board: {fileID: 1788173646550791330}
+  mousePosition: {x: 0, y: 0}
+  selectedPiece: {fileID: 0}
 --- !u!114 &1840639382
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -764,6 +763,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 99879d36-afcd-4ab7-8fa5-bea056ac8986
     m_ActionName: Game/Hover[/Mouse/radius]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1840639381}
+        m_TargetAssemblyTypeName: Controller, Assembly-CSharp
+        m_MethodName: RightClick
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: f2dc055d-5088-4130-a732-716cfac8766f
+    m_ActionName: Game/RightClick[/Mouse/rightButton]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Game
@@ -782,7 +797,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1788173646550791329
 PrefabInstance:

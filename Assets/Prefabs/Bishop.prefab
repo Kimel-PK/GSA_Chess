@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1861819637437256003
+--- !u!1 &5027407920624258323
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,46 +8,46 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6265098090297528212}
-  - component: {fileID: 461718466531834569}
-  - component: {fileID: 3094226061608143575}
+  - component: {fileID: 428072821411135904}
+  - component: {fileID: 5414499390702786012}
+  - component: {fileID: 1469372250335436848}
   m_Layer: 0
-  m_Name: Pawn
+  m_Name: Bishop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &6265098090297528212
+--- !u!4 &428072821411135904
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1861819637437256003}
+  m_GameObject: {fileID: 5027407920624258323}
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071067}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 7419900658137106117}
+  m_Father: {fileID: 4344926151629822796}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &461718466531834569
+--- !u!33 &5414499390702786012
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1861819637437256003}
-  m_Mesh: {fileID: -7665532883205010274, guid: 43b2605c14e632b4691057b74fa16cd4, type: 3}
---- !u!23 &3094226061608143575
+  m_GameObject: {fileID: 5027407920624258323}
+  m_Mesh: {fileID: -2860849386467966343, guid: 43b2605c14e632b4691057b74fa16cd4, type: 3}
+--- !u!23 &1469372250335436848
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1861819637437256003}
+  m_GameObject: {fileID: 5027407920624258323}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -83,7 +83,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!1001 &5246085129911337347
+--- !u!1001 &1331193742452022282
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -148,32 +148,32 @@ PrefabInstance:
     - target: {fileID: 8337720293325636502, guid: 0c11c99a593f3d24eb11c78aca56640a,
         type: 3}
       propertyPath: m_Name
-      value: Pawn
+      value: Bishop
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0c11c99a593f3d24eb11c78aca56640a, type: 3}
---- !u!1 &4285279292720316949 stripped
+--- !u!4 &4344926151629822796 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3329601547345594182, guid: 0c11c99a593f3d24eb11c78aca56640a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1331193742452022282}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7047238179793854364 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8337720293325636502, guid: 0c11c99a593f3d24eb11c78aca56640a,
     type: 3}
-  m_PrefabInstance: {fileID: 5246085129911337347}
+  m_PrefabInstance: {fileID: 1331193742452022282}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1919895029071088940
+--- !u!114 &4604443096444873643
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4285279292720316949}
+  m_GameObject: {fileID: 7047238179793854364}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3cc6f914cb268a24c90067c23eeabc40, type: 3}
+  m_Script: {fileID: 11500000, guid: 1eb6a8f80488faa4f8ac978310515515, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  r: {fileID: 3094226061608143575}
---- !u!4 &7419900658137106117 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3329601547345594182, guid: 0c11c99a593f3d24eb11c78aca56640a,
-    type: 3}
-  m_PrefabInstance: {fileID: 5246085129911337347}
-  m_PrefabAsset: {fileID: 0}
+  r: {fileID: 1469372250335436848}

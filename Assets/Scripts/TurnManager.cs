@@ -14,13 +14,14 @@ public class TurnManager : MonoBehaviour
         playersPieces.Add(new ());
     }
 
-    public void Move (Piece piece, Vector2Int endPos) {
-        Debug.Log($"move {piece} to {endPos}");
+    public void AddPiece (Piece piece, int playerNumber)
+    {
+        playersPieces[playerNumber].Add(piece);
+    }
 
-        /*
+    public void Move (Piece piece, Vector2Int endPos) {
         if (!playersPieces[currentPlayer].Contains (piece))
             return;
-        */
 
         if (board.Move (piece.Position, endPos))
             NextPlayer();

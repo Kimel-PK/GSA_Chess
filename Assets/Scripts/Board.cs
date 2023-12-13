@@ -9,10 +9,10 @@ public class Board : MonoBehaviour
 
     [SerializeField] GameObject pawnPrefab;
 
-    private void Start()
+    public void AddPiece(Piece piece, Vector2Int position)
     {
-        GameObject tmp = Instantiate(pawnPrefab, new Vector3(.5f, 0, .5f), Quaternion.identity, transform);
-        board[0, 0] = tmp.GetComponent<Piece>();
+        board[position.x, position.y] = piece;
+        piece.Position = position;
     }
 
     public bool Move (Vector2Int startPos, Vector2Int endPos) {
