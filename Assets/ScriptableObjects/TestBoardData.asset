@@ -12,20 +12,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a7e2bc2ef8c5074c9f73867e3a7c8e5, type: 3}
   m_Name: TestBoardData
   m_EditorClassIdentifier: 
+  boardSize: {x: 4, y: 4}
   piecesData:
   - playerNumber: 0
-    pieceType: 5
+    boardTileType: 2
     amount: 1
     direction: 0
   - playerNumber: 1
-    pieceType: 5
+    boardTileType: 3
     amount: 1
     direction: 2
   - playerNumber: 0
-    pieceType: 0
+    boardTileType: 4
     amount: 6
     direction: 2
   - playerNumber: 0
-    pieceType: 1
+    boardTileType: 5
     amount: 8
     direction: 0

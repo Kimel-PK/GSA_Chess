@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &8692530218755570796
+--- !u!1 &491599593851095569
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,46 +8,46 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 3405990298225403094}
-  - component: {fileID: 6584896175520621599}
-  - component: {fileID: 3185409902875012313}
+  - component: {fileID: 4616731161509555612}
+  - component: {fileID: 6314983828370382056}
+  - component: {fileID: 6942738317444191339}
   m_Layer: 0
-  m_Name: Rook
+  m_Name: King
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &3405990298225403094
+--- !u!4 &4616731161509555612
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8692530218755570796}
-  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071067}
+  m_GameObject: {fileID: 491599593851095569}
+  m_LocalRotation: {x: 0, y: 0.7072302, z: 0.7069834, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2114758908133766728}
+  m_Father: {fileID: 1245615390042760941}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &6584896175520621599
+  m_LocalEulerAnglesHint: {x: -89.98, y: 180, z: 0}
+--- !u!33 &6314983828370382056
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8692530218755570796}
-  m_Mesh: {fileID: -9023730479324629791, guid: 43b2605c14e632b4691057b74fa16cd4, type: 3}
---- !u!23 &3185409902875012313
+  m_GameObject: {fileID: 491599593851095569}
+  m_Mesh: {fileID: -4175726406976504967, guid: 43b2605c14e632b4691057b74fa16cd4, type: 3}
+--- !u!23 &6942738317444191339
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8692530218755570796}
+  m_GameObject: {fileID: 491599593851095569}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -61,7 +61,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 5ca3a527cc6519645865310f778fd10d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -83,7 +83,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!1001 &3705403606213062926
+--- !u!1001 &4574617557522325931
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -148,32 +148,32 @@ PrefabInstance:
     - target: {fileID: 8337720293325636502, guid: 0c11c99a593f3d24eb11c78aca56640a,
         type: 3}
       propertyPath: m_Name
-      value: Rook
+      value: King
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0c11c99a593f3d24eb11c78aca56640a, type: 3}
---- !u!4 &2114758908133766728 stripped
+--- !u!4 &1245615390042760941 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3329601547345594182, guid: 0c11c99a593f3d24eb11c78aca56640a,
     type: 3}
-  m_PrefabInstance: {fileID: 3705403606213062926}
+  m_PrefabInstance: {fileID: 4574617557522325931}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &4672964671051559576 stripped
+--- !u!1 &5533171324318360125 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8337720293325636502, guid: 0c11c99a593f3d24eb11c78aca56640a,
     type: 3}
-  m_PrefabInstance: {fileID: 3705403606213062926}
+  m_PrefabInstance: {fileID: 4574617557522325931}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &4983598834320427007
+--- !u!114 &2683447945048917013
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4672964671051559576}
+  m_GameObject: {fileID: 5533171324318360125}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 412abd8795cd01f43b6714aa501c9b42, type: 3}
+  m_Script: {fileID: 11500000, guid: 12c1f77577b90794dbba85605a304592, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  r: {fileID: 3185409902875012313}
+  r: {fileID: 6942738317444191339}

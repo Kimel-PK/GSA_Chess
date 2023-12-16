@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2a7e2bc2ef8c5074c9f73867e3a7c8e5, type: 3}
-  m_Name: StandardBoardData
+  m_Name: LongBoardData
   m_EditorClassIdentifier: 
-  boardSize: {x: 8, y: 8}
+  boardSize: {x: 8, y: 16}
   piecesData:
   - playerNumber: 0
     boardTileType: 3
@@ -52,7 +52,7 @@ MonoBehaviour:
     direction: 0
   - playerNumber: 0
     boardTileType: 1
-    amount: 32
+    amount: 96
     direction: 0
   - playerNumber: 1
     boardTileType: 2

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028334, g: 0.2257134, b: 0.30692226, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -647,15 +647,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   turnManager: {fileID: 856650471}
   board: {fileID: 1788173646550791330}
+  boardTilePrefab: {fileID: 6339020940372862799, guid: a740a11d0f26b6847866de3d268efafb,
+    type: 3}
+  boardSidePrefab: {fileID: 2169370772819396824, guid: 04c8d3fc48fa52c4681f936b9d5d8c99,
+    type: 3}
+  boardCornerPrefab: {fileID: 4235056834474495052, guid: c195af9fa320d1540a6dc4096df31490,
+    type: 3}
   piecesPrefabs:
-  - {fileID: 8337720293325636502, guid: 0c11c99a593f3d24eb11c78aca56640a, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
   - {fileID: 4285279292720316949, guid: 2eeef70c75c8d8f428bd8001e6f2458a, type: 3}
   - {fileID: 4672964671051559576, guid: 3295f96eddc7974418228285d010d7e6, type: 3}
   - {fileID: 8387365764281469667, guid: 517929ba65747c64db688b5c1acb71d2, type: 3}
   - {fileID: 7047238179793854364, guid: 515bd30342f7e764eb4817e2c7abc299, type: 3}
   - {fileID: 1349098883090598887, guid: a9db56a055d0ccc418ba446f81cd71f4, type: 3}
   - {fileID: 5533171324318360125, guid: 819239d5cf0bb904b9e1a4054bbe8f06, type: 3}
+  whiteTileColor: {r: 1, g: 1, b: 1, a: 1}
+  blackTileColor: {r: 0, g: 0, b: 0, a: 1}
   boardData: {fileID: 11400000, guid: 5a7332af47381eb4a976cf6c3cb3414c, type: 2}
+  instantiateHelper: {fileID: 2114125842}
 --- !u!4 &1297477761
 Transform:
   m_ObjectHideFlags: 0
@@ -667,7 +677,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 2114125842}
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -798,6 +809,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2114125841
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2114125842}
+  m_Layer: 0
+  m_Name: InstantiateHelper
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2114125842
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2114125841}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1297477761}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1788173646550791329
 PrefabInstance:

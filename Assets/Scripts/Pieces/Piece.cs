@@ -6,7 +6,10 @@ using System;
 public abstract class Piece : MonoBehaviour
 {
     [SerializeField] Renderer r;
-
+    
+    /// <summary>
+    /// Property used for keep track of piece position on the board and synchronizing it with transform position automatically 
+    /// </summary>
     Vector2Int position;
     public Vector2Int Position
     {
@@ -21,6 +24,9 @@ public abstract class Piece : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Property used for keep track of piece direction and synchronizing it with transform rotation automatically
+    /// </summary>
     Direction direction;
     public Direction PieceDirection {
         get
@@ -48,12 +54,21 @@ public abstract class Piece : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Property used for setting piece visual appearance
+    /// </summary>
     public Color PieceColor {
+        // there is no need for getting piece color because this is only visual so there is no getter
         set
         {
             r.material.color = value;
         }
     }
 
+    /// <summary>
+    /// Check if move at given position is valid for this piece, capturing move is treated as valid move, capturing is handled by Board class
+    /// </summary>
+    /// <param name="position"></param>
+    /// <returns>True if move is valid</returns>
     public abstract bool IsValidMove (Vector2Int position);
 }
