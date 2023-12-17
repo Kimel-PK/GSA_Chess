@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// Represents single board tile, to prevent using gameObject.GetChild(0).GetChild(0).GetComponent()... in BoardGenerator script
+/// Represents single board tile
 /// </summary>
 public class BoardTile : MonoBehaviour
 {

@@ -7,8 +7,9 @@ using UnityEngine;
 /// </summary>
 public class Board : MonoBehaviour
 {
-    // logical array representing chess board
-    [SerializeField] private Piece[,] board;
+    // logical arrays representing chess board
+    [SerializeField] private BoardTile[,] board;
+    [SerializeField] private Piece[,] pieces;
     // grid used for translating between world and board positions
     [SerializeField] private Grid grid;
     
@@ -16,15 +17,16 @@ public class Board : MonoBehaviour
     [SerializeField] private Transform modelParent;
     [SerializeField] private Transform piecesParent;
 
-    private Vector2Int boardSize;
+    public Vector2Int Size { get; private set; }
 
     /// <summary>
     /// Initialize new board with given size
     /// </summary>
     public void CreateBoard(Vector2Int size)
     {
-        board = new Piece[size.x, size.y];
-        boardSize = size;
+        board = new BoardTile[size.x, size.y];
+        pieces = new Piece[size.x, size.y];
+        Size = size;
     }
 
     /// <summary>
@@ -44,13 +46,18 @@ public class Board : MonoBehaviour
     }
 
     /// <summary>
-    /// Add new piece to the board, piece will be placed on the given position
+    /// Add new tile to the board, piece will be placed on the given position
     /// </summary>
+    /// <param name="boardTile">Tile that will be added</param>
     /// <param name="piece">Piece that will be added</param>
     /// <param name="position">Position on board</param>
-    public void AddPiece(Piece piece, Vector2Int position)
+    public void AddTile(BoardTile boardTile, Piece piece, Vector2Int position)
     {
-        board[position.x, position.y] = piece;
+        board[position.x, position.y] = boardTile;
+        if (!piece)
+            return;
+        
+        pieces[position.x, position.y] = piece;
         piece.Position = position;
     }
 
@@ -64,12 +71,12 @@ public class Board : MonoBehaviour
         if (!board[startPos.x, startPos.y])
             return false;
         
-        Piece piece = board[startPos.x, startPos.y];
+        Piece piece = pieces[startPos.x, startPos.y];
         if (!piece.IsValidMove(endPos))
             return false;
         
-        board[startPos.x, startPos.y] = null;
-        board[endPos.x, endPos.y] = piece;
+        pieces[startPos.x, startPos.y] = null;
+        pieces[endPos.x, endPos.y] = piece;
         piece.Position = endPos;
         return true;
     }
@@ -102,9 +109,61 @@ public class Board : MonoBehaviour
     public Piece GetPieceAt(Vector3 position)
     {
         Vector3Int gridPos = grid.WorldToCell(position);
-        if (gridPos.x < 0 || gridPos.x >= boardSize.x || gridPos.y < 0 || gridPos.y >= boardSize.y)
+        if (gridPos.x < 0 || gridPos.x >= Size.x || gridPos.y < 0 || gridPos.y >= Size.y)
             return null;
 
-        return board[gridPos.x, gridPos.y];
+        return pieces[gridPos.x, gridPos.y];
+    }
+    
+    /// <summary>
+    /// Check if there is board tile at given position
+    /// </summary>
+    /// <param name="position">position to check</param>
+    /// <returns>true if there is board tile</returns>
+    public bool IsTileAt (Vector2Int position)
+    {
+        if (position.x < 0 || position.x >= Size.x || position.y < 0 || position.y >= Size.y)
+            return false;
+        return board[position.x, position.y];
+    }
+
+    /// <summary>
+    /// Get binary representation of adjacent tiles
+    /// </summary>
+    /// <param name="position">position where edges will be generated</param>
+    /// <returns>byte number representing array of adjacent tiles</returns>
+    public byte AdjacentTiles(Vector2Int position)
+    {
+        byte result = 0;
+        if (IsTileAt(new Vector2Int(position.x, position.y + 1)))
+            result += 1;
+        if (IsTileAt(new Vector2Int(position.x + 1, position.y)))
+            result += 2;
+        if (IsTileAt(new Vector2Int(position.x, position.y - 1)))
+            result += 4;
+        if (IsTileAt(new Vector2Int(position.x - 1, position.y)))
+            result += 8;
+
+        return result;
+    }
+    
+    /// <summary>
+    /// Get binary representation of corner tiles
+    /// </summary>
+    /// <param name="position">position where edges will be generated</param>
+    /// <returns>byte number representing array of corner tiles</returns>
+    public byte AdjacentCorners(Vector2Int position)
+    {
+        byte result = 0;
+        if (IsTileAt(new Vector2Int(position.x - 1, position.y + 1)))
+            result += 1;
+        if (IsTileAt(new Vector2Int(position.x + 1, position.y + 1)))
+            result += 2;
+        if (IsTileAt(new Vector2Int(position.x + 1, position.y - 1)))
+            result += 4;
+        if (IsTileAt(new Vector2Int(position.x - 1, position.y - 1)))
+            result += 8;
+
+        return result;
     }
 }
