@@ -90,6 +90,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2347214795791700460, guid: 0c11c99a593f3d24eb11c78aca56640a,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4773556880738217234, guid: 0c11c99a593f3d24eb11c78aca56640a,
         type: 3}
       propertyPath: m_RootOrder
@@ -150,8 +155,19 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bishop
       objectReference: {fileID: 0}
+    - target: {fileID: 8982713462834191970, guid: 0c11c99a593f3d24eb11c78aca56640a,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0c11c99a593f3d24eb11c78aca56640a, type: 3}
+--- !u!1 &112784229060294161 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1434934208126839323, guid: 0c11c99a593f3d24eb11c78aca56640a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1331193742452022282}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4344926151629822796 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3329601547345594182, guid: 0c11c99a593f3d24eb11c78aca56640a,
@@ -177,3 +193,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   r: {fileID: 1469372250335436848}
+  tempHighlightObject: {fileID: 112784229060294161}

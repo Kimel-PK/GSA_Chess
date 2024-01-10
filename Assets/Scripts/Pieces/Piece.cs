@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public abstract class Piece : MonoBehaviour
+public abstract class Piece : MonoBehaviour, IHighlightable, ISelectable
 {
     [SerializeField] Renderer r;
+    [SerializeField] GameObject tempHighlightObject;
     
     /// <summary>
     /// Property used for keep track of piece position on the board and synchronizing it with transform position automatically 
@@ -71,4 +72,14 @@ public abstract class Piece : MonoBehaviour
     /// <param name="position"></param>
     /// <returns>True if move is valid</returns>
     public abstract bool IsValidMove (Vector2Int position);
+
+    public void Highlight(bool state)
+    {
+        tempHighlightObject.SetActive(state);
+    }
+
+    public void Select(bool state)
+    {
+        throw new NotImplementedException();
+    }
 }

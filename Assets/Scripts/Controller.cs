@@ -13,6 +13,8 @@ public class Controller : MonoBehaviour
     [SerializeField] private Vector2 mousePosition;
     [SerializeField] private Piece selectedPiece;
 
+    IHighlightable highlightedObject;
+
     /// <summary>
     /// Select piece on left click
     /// </summary>
@@ -61,6 +63,24 @@ public class Controller : MonoBehaviour
             return;
 
         mousePosition = context.ReadValue<Vector2>();
+
+        // using tracked mouse position send a raycast towards the board
+        Debug.DrawRay(Camera.main.ScreenPointToRay(mousePosition).origin, Camera.main.ScreenPointToRay(mousePosition).direction * 100f, Color.red, 1f);
+        // if raycast doesn't hit anything end the function
+        if (!Physics.Raycast(Camera.main.ScreenPointToRay(mousePosition), out RaycastHit rHit, 100f))
+            return;
+
+        IHighlightable hoveredObject = rHit.collider.GetComponentInParent<IHighlightable>();
+
+        if (hoveredObject is null)
+            highlightedObject?.Highlight(false);
+
+        if (hoveredObject == highlightedObject)
+            return;
+
+        highlightedObject?.Highlight(false);
+        highlightedObject = hoveredObject;
+        hoveredObject?.Highlight(true);
     }
 
     /// <summary>
