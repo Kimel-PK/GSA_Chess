@@ -6,7 +6,7 @@ using System;
 public abstract class Piece : MonoBehaviour, IHighlightable, ISelectable
 {
     [SerializeField] Renderer r;
-    [SerializeField] GameObject tempHighlightObject;
+    [SerializeField] Outline outline;
     
     /// <summary>
     /// Property used for keep track of piece position on the board and synchronizing it with transform position automatically 
@@ -73,13 +73,23 @@ public abstract class Piece : MonoBehaviour, IHighlightable, ISelectable
     /// <returns>True if move is valid</returns>
     public abstract bool IsValidMove (Vector2Int position);
 
+    /// <summary>
+    /// Add red outline to piece
+    /// </summary>
+    /// <param name="state">True to enable outline, false to disable</param>
     public void Highlight(bool state)
     {
-        tempHighlightObject.SetActive(state);
+        outline.OutlineColor = Color.red;
+        outline.enabled = state;
     }
 
+    /// <summary>
+    /// Add yellow outline to piece
+    /// </summary>
+    /// <param name="state">True to enable outline, false to disable</param>
     public void Select(bool state)
     {
-        throw new NotImplementedException();
+        outline.OutlineColor = Color.yellow;
+        outline.enabled = state;
     }
 }

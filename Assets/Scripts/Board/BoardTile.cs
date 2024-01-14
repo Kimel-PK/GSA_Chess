@@ -13,10 +13,6 @@ public class BoardTile : MonoBehaviour, IHighlightable, ISelectable
     private Color color;
     private Color Color
     {
-        get
-        {
-            return color;
-        }
         set
         {
             color = value;
@@ -24,11 +20,19 @@ public class BoardTile : MonoBehaviour, IHighlightable, ISelectable
         }
     }
 
+    /// <summary>
+    /// Temporarily change board tile color to red
+    /// </summary>
+    /// <param name="state">True to enable highlight, false to disable</param>
     public void Highlight(bool state)
     {
         Color = state ? Color.red : baseColor;
     }
 
+    /// <summary>
+    /// Temporarily change board tile color to yellow
+    /// </summary>
+    /// <param name="state">True to enable highlight, false to disable</param>
     public void Select(bool state)
     {
         Color = state ? Color.yellow : baseColor;
@@ -37,10 +41,10 @@ public class BoardTile : MonoBehaviour, IHighlightable, ISelectable
     /// <summary>
     /// Set board tile color
     /// </summary>
-    /// <param name="color">New board tile color</param>
-    public void SetColor (Color color)
+    /// <param name="newColor">New board tile color</param>
+    public void SetColor (Color newColor)
     {
-        baseColor = color;
-        Color = color;
+        baseColor = newColor;
+        Color = newColor;
     }
 }
