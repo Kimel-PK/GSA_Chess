@@ -1,15 +1,18 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
 /// Represents single board tile
 /// </summary>
-public class BoardTile : MonoBehaviour, IHighlightable, ISelectable
+public class BoardTile : MonoBehaviour, IHighlightable
 {
     [SerializeField] private Renderer r;
 
     private Color baseColor;
+    private bool selected;
+    private Color selectedColor;
+    private bool highlighted;
+    private Color highlightedColor;
+    
     private Color color;
     private Color Color
     {
@@ -21,21 +24,52 @@ public class BoardTile : MonoBehaviour, IHighlightable, ISelectable
     }
 
     /// <summary>
-    /// Temporarily change board tile color to red
+    /// Temporarily change board tile color
     /// </summary>
-    /// <param name="state">True to enable highlight, false to disable</param>
-    public void Highlight(bool state)
+    /// <param name="highlightColor">Temporary tile color</param>
+    public void Highlight(Color highlightColor)
     {
-        Color = state ? Color.red : baseColor;
+        highlighted = true;
+        highlightedColor = highlightColor;
+        Color = highlightedColor;
+    }
+
+    public void Unhighlight()
+    {
+        highlighted = false;
+        if (selected)
+        {
+            Color = selectedColor;
+            return;
+        }
+
+        Color = baseColor;
     }
 
     /// <summary>
-    /// Temporarily change board tile color to yellow
+    /// Temporarily change board tile color
     /// </summary>
-    /// <param name="state">True to enable highlight, false to disable</param>
-    public void Select(bool state)
+    /// <param name="selectColor"></param>
+    public void Select(Color selectColor)
     {
-        Color = state ? Color.yellow : baseColor;
+        selected = true;
+        selectedColor = selectColor;
+        if (highlighted)
+            return;
+        
+        Color = selectedColor;
+    }
+
+    public void Deselect()
+    {
+        selected = false;
+        if (highlighted)
+        {
+            Color = highlightedColor;
+            return;
+        }
+
+        Color = baseColor;
     }
 
     /// <summary>

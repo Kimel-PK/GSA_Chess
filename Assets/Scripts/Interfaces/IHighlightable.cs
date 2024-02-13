@@ -1,8 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public interface IHighlightable
 {
-    public void Highlight(bool state);
+    public void Highlight(Color highlightColor);
+    public void Unhighlight();
 }

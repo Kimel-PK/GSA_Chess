@@ -77,6 +77,7 @@ public class BoardGenerator : MonoBehaviour
                     piece = go.GetComponent<Piece>();
                     piece.PieceColor = spawnData.playerNumber == 0 ? Color.white : Color.black;
                     piece.PieceDirection = spawnData.direction;
+                    piece.board = board;
                 }
 
                 // add new piece to game logic

@@ -682,7 +682,7 @@ MonoBehaviour:
   - {fileID: 5533171324318360125, guid: 819239d5cf0bb904b9e1a4054bbe8f06, type: 3}
   whiteTileColor: {r: 1, g: 1, b: 1, a: 1}
   blackTileColor: {r: 0, g: 0, b: 0, a: 1}
-  boardData: {fileID: 11400000, guid: 1e7967c5ce5c2754f846a072b49d8e66, type: 2}
+  boardData: {fileID: 11400000, guid: 9691fd2a2b527de4ebb31c9c7b78e2f4, type: 2}
 --- !u!4 &1297477761
 Transform:
   m_ObjectHideFlags: 0
@@ -813,7 +813,6 @@ MonoBehaviour:
   turnManager: {fileID: 856650471}
   board: {fileID: 1497788833}
   mousePosition: {x: 0, y: 0}
-  selectedPiece: {fileID: 0}
 --- !u!114 &1840639382
 MonoBehaviour:
   m_ObjectHideFlags: 0

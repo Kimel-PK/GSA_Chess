@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
@@ -115,6 +113,14 @@ public class Board : MonoBehaviour
         return pieces[gridPos.x, gridPos.y];
     }
     
+    public BoardTile GetTileAt(Vector2Int gridPos)
+    {
+        if (gridPos.x < 0 || gridPos.x >= Size.x || gridPos.y < 0 || gridPos.y >= Size.y)
+            return null;
+
+        return board[gridPos.x, gridPos.y];
+    }
+
     /// <summary>
     /// Check if there is board tile at given position
     /// </summary>

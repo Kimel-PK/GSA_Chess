@@ -1,17 +1,23 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System;
 
 public abstract class Piece : MonoBehaviour, IHighlightable, ISelectable
 {
-    [SerializeField] Renderer r;
-    [SerializeField] Outline outline;
+    // TODO replace with Board singleton
+    public Board board;
     
+    [SerializeField] private Renderer r;
+    [SerializeField] private Outline outline;
+    
+    private bool selected;
+    private Color selectedColor;
+    private bool highlighted;
+    private Color highlightedColor;
+
     /// <summary>
     /// Property used for keep track of piece position on the board and synchronizing it with transform position automatically 
     /// </summary>
-    Vector2Int position;
+    private Vector2Int position;
     public Vector2Int Position
     {
         get
@@ -28,7 +34,7 @@ public abstract class Piece : MonoBehaviour, IHighlightable, ISelectable
     /// <summary>
     /// Property used for keep track of piece direction and synchronizing it with transform rotation automatically
     /// </summary>
-    Direction direction;
+    private Direction direction;
     public Direction PieceDirection {
         get
         {
@@ -69,27 +75,54 @@ public abstract class Piece : MonoBehaviour, IHighlightable, ISelectable
     /// <summary>
     /// Check if move at given position is valid for this piece, capturing move is treated as valid move, capturing is handled by Board class
     /// </summary>
-    /// <param name="position"></param>
+    /// <param name="movePosition"></param>
     /// <returns>True if move is valid</returns>
-    public abstract bool IsValidMove (Vector2Int position);
+    public abstract bool IsValidMove (Vector2Int movePosition);
+
+    public abstract List<Vector2Int> GetValidMoves();
 
     /// <summary>
     /// Add red outline to piece
     /// </summary>
-    /// <param name="state">True to enable outline, false to disable</param>
-    public void Highlight(bool state)
+    /// <param name="highlightColor">Outline color</param>
+    public void Highlight(Color highlightColor)
     {
-        outline.OutlineColor = Color.red;
-        outline.enabled = state;
+        highlighted = true;
+        highlightedColor = highlightColor;
+        outline.OutlineColor = highlightedColor;
+        outline.enabled = true;
+    }
+    
+    public void Unhighlight()
+    {
+        highlighted = false;
+        if (selected)
+        {
+            outline.OutlineColor = selectedColor;
+            return;
+        }
+        outline.enabled = false;
     }
 
     /// <summary>
     /// Add yellow outline to piece
     /// </summary>
-    /// <param name="state">True to enable outline, false to disable</param>
-    public void Select(bool state)
+    /// <param name="selectColor">Outline color</param>
+    public void Select(Color selectColor)
     {
-        outline.OutlineColor = Color.yellow;
-        outline.enabled = state;
+        selected = true;
+        selectedColor = selectColor;
+        if (highlighted)
+            return;
+        outline.OutlineColor = selectedColor;
+        outline.enabled = true;
+    }
+    
+    public void Deselect()
+    {
+        selected = false;
+        if (highlighted)
+            return;
+        outline.enabled = false;
     }
 }
