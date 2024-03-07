@@ -6,7 +6,8 @@ using UnityEngine;
 /// </summary>
 public class TurnManager : MonoBehaviour
 {
-    public Board board;
+    public static TurnManager Instance;
+
     public int currentPlayer;
     
     private readonly List<List<Piece>> playersPieces = new ();
@@ -16,6 +17,14 @@ public class TurnManager : MonoBehaviour
     /// </summary>
     private void Awake()
     {
+        if (!Instance)
+            Instance = this;
+        else
+        {
+            Destroy(gameObject);
+            return;
+        }
+
         playersPieces.Add(new ());
         playersPieces.Add(new ());
     }
@@ -39,7 +48,7 @@ public class TurnManager : MonoBehaviour
         if (!playersPieces[currentPlayer].Contains (piece))
             return;
 
-        if (board.Move (piece.Position, endPos))
+        if (Board.Instance.Move (piece.Position, endPos))
             NextPlayer();
     }
 
@@ -49,5 +58,10 @@ public class TurnManager : MonoBehaviour
     void NextPlayer () {
         currentPlayer++;
         currentPlayer %= playersPieces.Count;
+    }
+
+    public bool IsCurrentPlayerPiece (Piece piece)
+    {
+        return playersPieces[currentPlayer].Contains(piece);
     }
 }

@@ -2,10 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public abstract class Piece : MonoBehaviour, IHighlightable, ISelectable
-{
-    // TODO replace with Board singleton
-    public Board board;
-    
+{   
     [SerializeField] private Renderer r;
     [SerializeField] private Outline outline;
     

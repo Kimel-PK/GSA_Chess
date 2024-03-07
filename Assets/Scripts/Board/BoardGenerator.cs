@@ -7,6 +7,8 @@ using UnityEngine;
 /// </summary>
 public class BoardGenerator : MonoBehaviour
 {
+    public static BoardGenerator Instance;
+
     // references to other scripts in scene
     [SerializeField] private TurnManager turnManager;
     [SerializeField] private Board board;
@@ -22,23 +24,19 @@ public class BoardGenerator : MonoBehaviour
     // colors used in board generation
     [SerializeField] private Color whiteTileColor;
     [SerializeField] private Color blackTileColor;
-    
-    // scriptable object with tiles and pieces data, assigned in inspector
-    [SerializeField] private BoardDataScriptableObject boardData;
 
-    /// <summary>
-    /// Unity event method called on scene start before first frame
-    /// </summary>
-    private void Start()
+    private void Awake()
     {
-        // on scene start generate board (in future this will be called by game manager)
-        GenerateBoard();
+        if (!Instance)
+            Instance = this;
+        else
+            Destroy(gameObject);
     }
 
     /// <summary>
     /// Generates board based on data from BoardDataScriptableObject
     /// </summary>
-    public void GenerateBoard ()
+    public void GenerateBoard (BoardDataScriptableObject boardData)
     {
         // initialize new board
         board.CreateBoard(boardData.boardSize);
@@ -77,7 +75,6 @@ public class BoardGenerator : MonoBehaviour
                     piece = go.GetComponent<Piece>();
                     piece.PieceColor = spawnData.playerNumber == 0 ? Color.white : Color.black;
                     piece.PieceDirection = spawnData.direction;
-                    piece.board = board;
                 }
 
                 // add new piece to game logic

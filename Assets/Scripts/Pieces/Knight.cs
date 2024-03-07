@@ -25,9 +25,9 @@ public class Knight : Piece
         
         foreach (Vector2Int possibleMove in possibleMoves)
         {
-            BoardTile tile = board.GetTileAt(possibleMove);
-            // TODO check if there is a piece at that tile and whether it's an enemy piece
-            if (tile)
+            BoardTile tile = Board.Instance.GetTileAt(possibleMove);
+            Piece piece = Board.Instance.GetPieceAt(possibleMove);
+            if (tile && (!piece || !TurnManager.Instance.IsCurrentPlayerPiece(piece)))
                 results.Add(possibleMove);
         }
         return results;
