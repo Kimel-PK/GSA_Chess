@@ -5,6 +5,8 @@ using UnityEngine;
 /// </summary>
 public class Board : MonoBehaviour
 {
+    public static Board Instance;
+
     // logical arrays representing chess board
     [SerializeField] private BoardTile[,] board;
     [SerializeField] private Piece[,] pieces;
@@ -16,6 +18,14 @@ public class Board : MonoBehaviour
     [SerializeField] private Transform piecesParent;
 
     public Vector2Int Size { get; private set; }
+
+    private void Awake ()
+    {
+        if (!Instance)
+            Instance = this;
+        else
+            Destroy(gameObject);
+    }
 
     /// <summary>
     /// Initialize new board with given size
@@ -112,7 +122,15 @@ public class Board : MonoBehaviour
 
         return pieces[gridPos.x, gridPos.y];
     }
-    
+
+    public Piece GetPieceAt(Vector2Int gridPos)
+    {
+        if (gridPos.x < 0 || gridPos.x >= Size.x || gridPos.y < 0 || gridPos.y >= Size.y)
+            return null;
+
+        return pieces[gridPos.x, gridPos.y];
+    }
+
     public BoardTile GetTileAt(Vector2Int gridPos)
     {
         if (gridPos.x < 0 || gridPos.x >= Size.x || gridPos.y < 0 || gridPos.y >= Size.y)
